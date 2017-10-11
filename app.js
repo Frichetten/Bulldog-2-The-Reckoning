@@ -1,3 +1,6 @@
+const React = require('react');
+const ReactDOM = require('react-dom');
+
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -28,7 +31,8 @@ app.use(bodyParser.json());
 app.use('/users', users);
 
 app.get('/', (req, res) => {
- res.send("How's it going");
+ // res.send("How's it going");
+ ReactDOM.render("<h1>Hello World</h1>", document.getElementById('app'));
 });
 
 
