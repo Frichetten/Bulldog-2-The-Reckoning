@@ -1,6 +1,3 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -28,11 +25,16 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(bodyParser.json());
 
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
+
 app.use('/users', users);
 
 app.get('/', (req, res) => {
- // res.send("How's it going");
- ReactDOM.render("<h1>Hello World</h1>", document.getElementById('app'));
+ res.send("How's it going");
 });
 
 
