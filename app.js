@@ -22,7 +22,7 @@ const users = require('./routes/users');
 const port = 8080;
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
 // Passport
@@ -37,6 +37,9 @@ app.get('/', (req, res) => {
  res.send("How's it going");
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 app.listen(port, () => {
   console.log('Server started on port ' + port);
