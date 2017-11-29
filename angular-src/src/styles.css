@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+h3.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* I can't tell if I'm getting old or what, but the default text size is too
+small. 14px? Really? */
+p {
+  font-size: 17px;
+}
+
+img {
+  width: 95%;
+}
