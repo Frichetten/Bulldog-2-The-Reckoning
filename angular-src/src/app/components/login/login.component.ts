@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService:AuthService,
     private router:Router,
-    private flashMessage:FlashMessagesService  
+    private flashMessage:FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -29,14 +29,14 @@ export class LoginComponent implements OnInit {
 
     this.authService.authenticateUser(user).subscribe(data => {
       if(data.success){
-        this.authService.storeUserData(data.token, data.user); 
+        this.authService.storeUserData(data.token, data.user);
         this.flashMessage.show('You are now logged in', {cssClass: 'alert-success', timeout: 5000});
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['profile']);
       } else {
         console.log("You have failed to authenticate");
         this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 5000});
         this.router.navigate(['login']);
-      }  
+      }
     });
   }
 

@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit(){
-    
+
     const user = {
       name: this.name,
       email: this.email,
@@ -48,7 +48,6 @@ export class RegisterComponent implements OnInit {
 
     // Register user
     this.authService.registerUser(user).subscribe(data => {
-      
       if(data.success){
         this.flashMessage.show('You are now registered and can log in', {cssClass: 'alert-success', timeout: 3000});
         this.router.navigate(['/login']);

@@ -18,6 +18,10 @@ const UserSchema = mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  auth_level: {
+    type: String,
+    required: false
   }
 });
 
