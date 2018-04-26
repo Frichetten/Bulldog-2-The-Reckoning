@@ -1,0 +1,9 @@
+#top {
+  background: rgba(255, 255, 255, .4);
+  display: block;
+  padding: 0px;
+}
+
+.row {
+  background: rgba(158, 185, 229, .4);
+}
