@@ -1,9 +1,14 @@
 #top {
   background: rgba(255, 255, 255, .4);
-  display: block;
-  padding: 0px;
+  padding-bottom: 0em;
+  margin-top: -4em;
 }
 
 .row {
   background: rgba(158, 185, 229, .4);
+  padding-bottom: 10px;
+}
+
+.btn {
+  font-size: 2em;
 }
