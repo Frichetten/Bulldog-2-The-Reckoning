@@ -29,6 +29,22 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  isAdmin(){
+    var user = localStorage.getItem('user');
+    if (user === null) {
+      return false;
+    }
+    else {
+      var use = JSON.parse(user);
+      if (use.auth_level == "admin_user") {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
+
   storeUserData(token, user){
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));
