@@ -69,8 +69,15 @@ router.post('/authenticate', (req, res, next) => {
 });
 
 // Profile
-router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
-  res.json({user: req.user});
+router.get('/profile/:username', (req, res, next) => {
+  User.getUserByUsername(req.params.username, (err, values) => {
+    res.json(values)
+  });
 });
+
+// Save this for the admin section possibly
+//router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+//  res.json({user: req.user});
+//});
 
 module.exports = router;

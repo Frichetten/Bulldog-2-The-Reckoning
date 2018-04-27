@@ -24,12 +24,8 @@ export class AuthService {
       .map(res => res.json());
   }
 
-  getProfile(){
-    let headers = new Headers();
-    this.loadToken();
-    headers.append('Authorization', this.authToken);
-    headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:8080/users/profile', {headers: headers})
+  getProfile(name){
+    return this.http.get('http://localhost:8080/users/profile/'+name)
       .map(res => res.json());
   }
 

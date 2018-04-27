@@ -7,10 +7,12 @@
   <div class="card-block">
     <div class="text-canvas">
       <div class="row">
-        <div class="col-md text-center" *ngFor="let user of users;" style="margin: 2em;min-width:200px;display:inline-block;">
-            <img src="./assets/bulldog.jpg" class="img-responsive" style="width:200px;height;200px;"/>
-            <p>{{ user.name }}</p>
-            <p>{{ user.username }}</p>
+        <div class="col-md-4 text-center" *ngFor="let user of users;" style="">
+            <a href="/profile/{{ user.username }}">
+              <img src="./assets/bulldog.jpg" class="img-responsive" style="width:200px;height;200px;margin-left:auto;margin-right:auto;"/>
+              <p>{{ user.name }}</p>
+              <p>{{ user.username }}</p>
+            </a>
         </div>
       </div>
     </div>

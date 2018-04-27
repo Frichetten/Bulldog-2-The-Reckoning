@@ -8,13 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  
+
   user:Object;
   constructor(private authService:AuthService, private router:Router) { }
 
   ngOnInit() {
-    this.authService.getProfile().subscribe(profile => {
-      this.user = profile.user;
+    var val = this.router.url;
+    var va = val.split("/");
+    if (va.length < 3){
+      var user = JSON.parse(localStorage.getItem("user"));
+      this.router.navigate(['/profile/'+user.username]);
+    }
+
+    this.authService.getProfile(va[2]).subscribe(profile => {
+      this.user = profile;
     },
     err => {
       console.log(err);
