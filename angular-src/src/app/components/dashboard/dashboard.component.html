@@ -1,2 +1,22 @@
-<h2 class="page-header">Dashboard</h2>
-<p>Welcome to your Dashboard</p>
+<div *ngIf="user.auth_level">
+  <div id="user-header">
+    <h2 class="page-header">Admin Dashboard</h2>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <h3>Link+ Login</h3>
+      <p>Please authenticate with the Link+ CLI Tool to use Link+</p>
+      <form (submit)="onLinkLoginSubmit()">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" class="form-control" [(ngModel)]="username" name="username">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" [(ngModel)]="password" name="password">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Login">
+      </form>
+    </li>
+  </ul>
+</div>

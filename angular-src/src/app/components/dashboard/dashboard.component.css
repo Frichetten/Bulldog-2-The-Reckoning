@@ -1,0 +1,9 @@
+#user-header {
+  background: rgba(158, 185, 229, .4);
+  padding-left: 1em;
+}
+
+.list-group-item {
+  background: rgba(158, 185, 229, .4);
+  padding-top: 0em;
+}

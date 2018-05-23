@@ -24,6 +24,11 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  authenticateLinkUser(user){
+    return this.http.post('http://localhost:8080/users/linkauthenticate', user)
+      .map(res => res.json());
+  }
+
   getProfile(name){
     return this.http.get('http://localhost:8080/users/profile/'+name)
       .map(res => res.json());
