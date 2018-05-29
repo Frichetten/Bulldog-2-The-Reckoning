@@ -40,30 +40,33 @@ router.post('/authenticate', (req, res, next) => {
   User.getUserByUsername(username, (err, user) => {
     if (err) throw err;
     if (!user) {
-      return res.json({success: false, msg: 'User not found'});
+      return res.status(401).send({success: false, msg: 'Incorrect Login'});
     }
 
-    User.comparePassword(password, user.password, (err, isMatch) => {
-      if (err) throw err;
-      if (isMatch) {
-        const token = jwt.sign({payload: user}, config.secret, {
-          expiresIn: 604800, // 1 week
-        });
+    // Get a user password
+    User.getUserPassword(username, (err, pass) => {
+      User.comparePassword(password, pass.password, (err, isMatch) => {
+        if (err) throw err;
+        if (isMatch) {
+          const token = jwt.sign({payload: user}, config.secret, {
+            expiresIn: 604800, // 1 week
+          });
 
-        return res.json({
-          success: true,
-          token: 'JWT '+token,
-          user: {
-            id: user._id,
-            name: user.name,
-            username: user.username,
-            email: user.email,
-            auth_level: user.auth_level,
-          },
-        });
-      } else {
-        return res.status(401).send({success: false, msg: 'Incorrect Login'});
-      }
+          return res.json({
+            success: true,
+            token: 'JWT '+token,
+            user: {
+              id: user._id,
+              name: user.name,
+              username: user.username,
+              email: user.email,
+              auth_level: user.auth_level,
+            },
+          });
+        } else {
+          return res.status(401).send({success: false, msg: 'Incorrect Login'});
+        }
+      });
     });
   });
 });
@@ -90,11 +93,5 @@ router.get('/profile/:username', (req, res, next) => {
     res.json(values);
   });
 });
-
-// Save this for the admin section possibly
-// router.get('/profile', passport.authenticate('jwt', {session:false}),
-// (req, res, next) => {
-//  res.json({user: req.user});
-// });
 
 module.exports = router;

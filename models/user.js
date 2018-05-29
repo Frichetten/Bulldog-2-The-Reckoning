@@ -41,6 +41,17 @@ module.exports.getUsers = function(number, callback) {
 
 module.exports.getUserByUsername = function(username, callback) {
   const query = {username: username};
+  User.findOne(query, callback).select({
+    'username': 1,
+    'name': 1,
+    '_id': 0,
+    'email': 1,
+    'auth_level': 1,
+  });
+};
+
+module.exports.getUserPassword = function(username, callback) {
+  const query = {username: username};
   User.findOne(query, callback);
 };
 
