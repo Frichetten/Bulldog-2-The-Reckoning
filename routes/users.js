@@ -62,9 +62,7 @@ router.post('/authenticate', (req, res, next) => {
           },
         });
       } else {
-        // return res.json({success: false, msg: 'Wrong password'});
-        // res.json({success: false, msg: 'Wrong password'});
-        res.send(403);
+        return res.status(401).send({success: false, msg: 'Incorrect Login'});
       }
     });
   });
