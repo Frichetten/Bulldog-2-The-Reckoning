@@ -1,9 +1,10 @@
 const express = require('express');
-const router = express.Router();
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const User = require('../models/user');
-const { exec } = require('child_process');
+const {exec} = require('child_process');
+
+const router = new express.Router();
 
 // Get Users
 router.get('/getUsers', (req, res, next) => {
@@ -70,10 +71,10 @@ router.post('/authenticate', (req, res, next) => {
 });
 
 router.post('/linkauthenticate', (req, res, next) => {
-  const username = req.body.username;
+  const username = req.body.password;
   const password = req.body.password;
 
-  exec(`linkplus ${password}`, (error, stdout, stderr) => {
+  exec(`linkplus -u ${username} -p ${password}`, (error, stdout, stderr) => {
   if (error) {
     console.error(`exec error: ${error}`);
     return;
