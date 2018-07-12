@@ -13,7 +13,7 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', (err) => {
   console.log('Database error: ' + err);
   console.log('Failed database connection. Exiting');
-  exit();
+  process.exit();
 });
 
 const app = express();
