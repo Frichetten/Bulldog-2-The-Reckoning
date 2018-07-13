@@ -19,6 +19,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { UsersComponent } from './components/users/users.component';
 import { AboutComponent } from './components/about/about.component';
+import { FourofourComponent } from './components/fourofour/fourofour.component';
 
 const appRoutes: Routes =  [
   {path:'', component: HomeComponent},
@@ -29,6 +30,7 @@ const appRoutes: Routes =  [
   {path:'profile/:username', component: ProfileComponent},
   {path:'users', component: UsersComponent},
   {path:'about', component: AboutComponent},
+  {path:'**', component: FourofourComponent},
 ]
 
 @NgModule({
@@ -41,7 +43,8 @@ const appRoutes: Routes =  [
     DashboardComponent,
     ProfileComponent,
     UsersComponent,
-    AboutComponent
+    AboutComponent,
+    FourofourComponent
   ],
   imports: [
     BrowserModule,
