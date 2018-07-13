@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const mongoose = require('mongoose');
@@ -22,6 +23,7 @@ const users = require('./routes/users');
 
 const port = 8080;
 
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'angular-src/dist')));
 app.use(bodyParser.json());
 
@@ -32,10 +34,6 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use('/users', users);
-
-app.get('/', (req, res) => {
- res.send('How\'s it going');
-});
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'angular-src/dist/index.html'));
