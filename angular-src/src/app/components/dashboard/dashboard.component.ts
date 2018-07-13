@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
     else {
       var use = JSON.parse(user);
 
-      if (use.auth_level == "admin_user") {
+      if (use.auth_level == "master_admin_user") {
         this.user = use;
         return true;
       }

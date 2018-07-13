@@ -34,7 +34,7 @@ export class AuthService {
     }
     else {
       var use = JSON.parse(user);
-      if (use.auth_level == "admin_user") {
+      if (use.auth_level == "master_admin_user") {
         return true;
       }
       else {
