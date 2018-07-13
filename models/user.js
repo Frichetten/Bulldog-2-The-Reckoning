@@ -32,7 +32,13 @@ module.exports.getUserById = function(id, callback) {
 };
 
 module.exports.getUsers = function(number, callback) {
-  let query = User.find({}).select({'username': 1, 'name': 1, '_id': 0})
+  let query = User.find({}).select(
+    {
+      'username': 1,
+      'name': 1,
+      'rand': 1,
+      '_id': 0,
+    })
     .limit(number);
   query.exec(function(err, info) {
     callback(null, info);
@@ -44,6 +50,7 @@ module.exports.getUserByUsername = function(username, callback) {
   User.findOne(query, callback).select({
     'username': 1,
     'name': 1,
+    'rand': 1,
     '_id': 0,
     'email': 1,
     'auth_level': 1,

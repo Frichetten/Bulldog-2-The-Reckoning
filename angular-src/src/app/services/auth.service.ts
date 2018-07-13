@@ -27,11 +27,6 @@ export class AuthService {
       .map(res => res.json());
   }
 
-  getProfile(name){
-    return this.http.get('http://localhost:8080/users/profile/'+name)
-      .map(res => res.json());
-  }
-
   isAdmin(){
     var user = localStorage.getItem('user');
     if (user === null) {

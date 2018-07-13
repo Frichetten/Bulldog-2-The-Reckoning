@@ -12,10 +12,6 @@ export class UsersComponent implements OnInit {
 
   constructor(private userService:UserService) { }
 
-  randomImage() {
-    return 1 + Math.floor(Math.random() * (23-1+1));
-  }
-
   ngOnInit() {
     this.userService.getUsers(9).subscribe(users => {
       this.users = users;

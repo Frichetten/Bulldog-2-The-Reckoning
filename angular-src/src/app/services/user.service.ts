@@ -13,4 +13,9 @@ export class UserService {
       .map(res => res.json());
   }
 
+  getProfile(name){
+    return this.http.get('http://localhost:8080/users/profile/'+name)
+      .map(res => res.json());
+  }
+
 }
