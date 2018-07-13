@@ -1,4 +1,17 @@
 #user-header {
-  background: rgba(158, 185, 229, .4);
-  padding-left: 1em;
+  background: rgba(158, 185, 229, .8);
+}
+
+h2 {
+  text-align: center;
+  padding: 1em;
+  color: black;
+}
+
+img.circle-avatar {
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
 }

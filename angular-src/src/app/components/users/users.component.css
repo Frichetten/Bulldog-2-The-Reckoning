@@ -2,3 +2,11 @@
   background: rgba(158, 185, 229, .4);
   padding: 10px;
 }
+
+img.circle-avatar {
+  border-radius: 50%;
+}
+
+p {
+  margin: 0;
+}

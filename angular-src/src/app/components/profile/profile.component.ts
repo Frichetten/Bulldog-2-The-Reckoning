@@ -12,6 +12,10 @@ export class ProfileComponent implements OnInit {
   user:Object;
   constructor(private authService:AuthService, private router:Router) { }
 
+  randomImage() {
+    return 1 + Math.floor(Math.random() * (23-1+1));
+  }
+
   ngOnInit() {
     var val = this.router.url;
     var va = val.split("/");

@@ -2,6 +2,10 @@
   <div id="user-header">
     <h2 class="page-header">{{user.name}}</h2>
   </div>
+  <div class="container">
+    <img src="./assets/pictures/{{ randomImage() }}.jpg" class="circle-avatar" />
+  </div>
+  <br>
   <ul class="list-group">
     <li class="list-group-item">Username: {{user.username}}</li>
     <li *ngIf="user.email" class="list-group-item">Email: {{user.email}}</li>
