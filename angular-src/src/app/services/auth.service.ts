@@ -13,17 +13,17 @@ export class AuthService {
   registerUser(user){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    return this.http.post('http://localhost:8080/users/register', user, {headers: headers})
+    return this.http.post('/users/register', user, {headers: headers})
       .map(res => res.json());
   }
 
   authenticateUser(user){
-    return this.http.post('http://localhost:8080/users/authenticate', user)
+    return this.http.post('/users/authenticate', user)
       .map(res => res.json());
   }
 
   authenticateLinkUser(user){
-    return this.http.post('http://localhost:8080/users/linkauthenticate', user)
+    return this.http.post('/users/linkauthenticate', user)
       .map(res => res.json());
   }
 

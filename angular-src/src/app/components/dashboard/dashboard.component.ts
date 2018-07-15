@@ -10,7 +10,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class DashboardComponent implements OnInit {
 
-  user:Object;
+  user: any;
   username: String;
   password: String;
   constructor(
@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
     else {
       var use = JSON.parse(user);
 
-      if (use.auth_level == "master_admin_user") {
+      if (use['auth_level'] == "master_admin_user") {
         this.user = use;
         return true;
       }
